@@ -7,7 +7,7 @@ module dff(input D,CLK,RESET,output reg Q);
     end
 endmodule
 
-module siso_register(input SERIAL_IN,CLK,RESET,output SERIAL_OUT,Q1,Q2,Q3);
+module siso_register(input SERIAL_IN,CLK,RESET,output SERIAL_OUT,Q1,Q2,Q3); //Declaring Q1,Q2,Q3 as outputs of Module here so that we can print them in testbench, otherwise printing them would be a hassle
         wire Q4;
 
         dff ff1(.D(SERIAL_IN),.CLK(CLK),.RESET(RESET),.Q(Q1));
