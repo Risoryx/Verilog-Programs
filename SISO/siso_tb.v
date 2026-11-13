@@ -6,17 +6,17 @@ module siso_tb;
 
 
     initial CLK_tb=0;
-    always #1 CLK_tb=~CLK_tb;
+    always #1 CLK_tb=~CLK_tb; //Clock's positive edges are at 1,3,5,7,9,11....
 
 
     initial begin
-        RESET_tb=1;
+        RESET_tb=1;   //Setting Reset=1 so that all flip flops are storing 0
         #2 RESET_tb=0;
         SERIAL_IN_tb=1;
         #2 SERIAL_IN_tb=0;
         #2 SERIAL_IN_tb=1;
-        #2 SERIAL_IN_tb=1;
-        #2 SERIAL_IN_tb=0;
+        #2 SERIAL_IN_tb=1; //Takes 7 positive clock edges to get data out
+        #2 SERIAL_IN_tb=0; //So that flip flops once again all store 0 since the serial input is 1101 with 1 leaving first and then 0 and so on
         #2 
         #2 
         #2 
